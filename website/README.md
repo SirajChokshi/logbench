@@ -23,3 +23,9 @@ pnpm build
 ```sh
 pnpm preview
 ```
+
+## Static Site Generator (Node.js)
+
+```
+pnpm build.server
+```

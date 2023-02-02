@@ -5,7 +5,8 @@
     "build": "pnpm -F logbench build",
     "build:example": "pnpm -F logbench-example build",
     "build:website": "pnpm -F logbench-website build",
-    "dev:website": "pnpm -F logbench-website dev"
+    "dev:website": "pnpm -F logbench-website dev",
+    "preview:website": "pnpm -F logbench-website preview"
   },
   "devDependencies": {
     "tsup": "^6.5.0",
