@@ -1,3 +1,5 @@
+import { Logger } from "./logger";
+
 /**
  * normalizes text by removing non-alphanumeric characters and converting to lowercase
  *
@@ -25,6 +27,8 @@ export function normalize(text: string | string[]): string {
  * @returns
  */
 export function split(text: string): string[] {
+  Logger.warn("Split is deprecated, use tokenize instead for better results");
+
   return text.split(" ");
 }
 

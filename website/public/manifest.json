@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "logbench-website",
+  "short_name": "Logbench",
+  "start_url": "https://logbench.siraj.page",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A tiny tool for developer warnings"
+}

@@ -1,21 +1,26 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"esModuleInterop": true,
-		"jsx": "react",
-		"jsxFactory": "h",
-		"jsxFragmentFactory": "Fragment",
-		"noEmit": true,
-		"allowJs": true,
-		"checkJs": true,
-		"skipLibCheck": true,
-		"baseUrl": "./",
-		"paths": {
-			"react": ["./node_modules/preact/compat"],
-			"react-dom": ["./node_modules/preact/compat"]
-		}
-	},
-	"include": ["src/**/*"]
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "ES2017",
+    "module": "ES2020",
+    "lib": ["es2020", "DOM", "WebWorker", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "outDir": "tmp",
+    "noEmit": true,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "files": ["./.eslintrc.cjs"],
+  "include": ["src"]
 }

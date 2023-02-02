@@ -1,7 +1,8 @@
+type LogFn<TData> = (data: TData) => unknown;
 export interface Logbench<TPayload> {
-  log: (log: TPayload) => unknown;
-  warn: (log: TPayload) => unknown;
-  error: (log: TPayload) => unknown;
+  log: LogFn<TPayload>;
+  warn: LogFn<TPayload>;
+  error: LogFn<TPayload>;
 }
 
 export interface LogbenchOptions<TPayload, KSerialized> {
@@ -12,8 +13,8 @@ export interface LogbenchOptions<TPayload, KSerialized> {
   stringify?: boolean;
 
   // callbacks
-  logFn?: (log: KSerialized) => unknown;
-  warnFn?: (log: KSerialized) => unknown;
-  errorFn?: (log: KSerialized) => unknown;
+  logFn?: LogFn<KSerialized>;
+  warnFn?: LogFn<KSerialized>;
+  errorFn?: LogFn<KSerialized>;
   serializeFn?: (log: TPayload) => KSerialized;
 }

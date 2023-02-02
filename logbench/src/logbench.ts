@@ -1,10 +1,10 @@
 import { LogbenchOptions, Logbench } from "./types";
 
 export class LogbenchImpl<TPayload, KSerialized> implements Logbench<TPayload> {
-  logFn: (log: KSerialized) => unknown;
-  warnFn: (log: KSerialized) => unknown;
-  errorFn: (log: KSerialized) => unknown;
-  _serialize: (log: TPayload) => KSerialized;
+  private logFn: (log: KSerialized) => unknown;
+  private warnFn: (log: KSerialized) => unknown;
+  private errorFn: (log: KSerialized) => unknown;
+  private _serialize: (log: TPayload) => KSerialized;
 
   constructor({
     // provide default callbacks
