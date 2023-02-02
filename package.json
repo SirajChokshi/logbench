@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "build": "pnpm -F logbench build",
-    "example": "pnpm -F logbench-example build",
-    "website": "pnpm -F logbench-website dev"
+    "build:example": "pnpm -F logbench-example build",
+    "build:website": "pnpm -F logbench-website build",
+    "dev:website": "pnpm -F logbench-website dev"
   },
   "devDependencies": {
     "tsup": "^6.5.0",
