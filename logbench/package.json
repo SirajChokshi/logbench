@@ -10,12 +10,13 @@
   ],
   "scripts": {
     "build": "tsup src",
-    "dev": "tsup src --watch"
+    "dev": "tsup src --watch",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.11.18"
+    "@types/node": "^8.10.66"
   }
 }

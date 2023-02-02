@@ -18,9 +18,9 @@ importers:
 
   logbench:
     specifiers:
-      '@types/node': ^18.11.18
+      '@types/node': ^8.10.66
     devDependencies:
-      '@types/node': 18.11.18
+      '@types/node': 8.10.66
 
   website:
     specifiers:
@@ -445,6 +445,10 @@ packages:
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+    dev: true
+
+  /@types/node/8.10.66:
+    resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
     dev: true
 
   /@types/semver/7.3.13:

@@ -1,4 +1,4 @@
-type LogFn<TData> = (data: TData) => unknown;
+type LogFn<TData> = (data: TData, style?: string) => unknown;
 export interface Logbench<TPayload> {
   log: LogFn<TPayload>;
   warn: LogFn<TPayload>;
