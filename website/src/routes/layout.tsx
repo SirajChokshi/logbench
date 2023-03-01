@@ -1,13 +1,12 @@
 import { component$, Slot } from "@builder.io/qwik";
+import Header from "~/components/header/header";
 
 export const YEAR = new Date().getFullYear();
 
 export default component$(() => {
   return (
     <>
-      <header>
-        <h1>Logbench</h1>
-      </header>
+      <Header />
       <main>
         <Slot />
       </main>
