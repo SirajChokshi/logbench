@@ -2,7 +2,7 @@
   "name": "logbench-website",
   "description": "Logbench. A tiny tool for warning developers.",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=18.0.0"
   },
   "private": true,
   "trustedDependencies": [
