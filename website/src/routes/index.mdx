@@ -1,0 +1,57 @@
+---
+title: "Logbench"
+---
+
+## Documentation
+
+When developing a library it can be useful to warn consumers of issues with their usage of your library. This can be done with `console.warn` but it can be difficult to see these warnings in the console when there are many other logs. 
+
+Logbench provides a way to log warnings to the console in a way that stands out and disable these warnings in production.
+
+
+## Example
+
+
+### Setup
+
+```ts
+import { Logbench } from 'logbench'
+
+
+export const logger = new Logbench({
+  warnFn: (message) => console.log(
+    %c`${message}`,
+    `
+      font-size: 18px;
+      background: black;
+      color: white; 
+    `
+  )
+})
+```
+
+### Usage
+
+```ts
+import { logger } from '@/lib/logger'
+
+// will only log in development
+// and styled in a way that stands out
+logger.warn('This is a warning')
+```
+
+
+## API
+
+When constructing a new instance of `Logbench` you can pass in an object with the following properties:
+
+### Options
+
+| Name | Type | Description | Default |
+| --- | --- | --- | --- |
+| `logFn` | `(message: KSerialized) => void` | A function that will be called when a log is logged. | -- |
+| `warnFn` | `(message: KSerialized) => void` | A function that will be called when a warning is logged.| -- |
+| `errorFn` | `(message: KSerialized) => void` | A function that will be called when an error is logged.  | -- |
+| `isProduction` | `boolean` | Whether or not warnings should be logged. | `process.env.NODE_ENV === 'production'` |
+| `stringify` | `boolean` | Whether or not to stringify the log message. |`true` |
+| `serializeFn` | `(log: TPayload) => KSerialized` | A function that will be called to serialize the log message.| `JSON.stringify` |

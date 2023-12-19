@@ -1,16 +1,20 @@
 {
   "name": "logbench-website",
-  "private": true,
+  "description": "Logbench. A tiny tool for warning developers.",
   "engines": {
-    "node": ">=15.0.0"
+    "node": ">=20.0.0"
   },
+  "private": true,
+  "trustedDependencies": [
+    "sharp"
+  ],
+  "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adaptors/static/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adaptor'",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -21,21 +25,34 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "0.17.2",
-    "@builder.io/qwik-city": "0.0.128",
-    "@types/eslint": "8.21.0",
-    "@types/node": "^18.11.18",
-    "@types/node-fetch": "latest",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-qwik": "0.17.2",
-    "node-fetch": "3.3.0",
-    "prettier": "2.8.3",
-    "sass": "^1.58.0",
-    "typescript": "4.9.5",
-    "undici": "5.16.0",
-    "vite": "4.0.4",
-    "vite-tsconfig-paths": "3.5.0"
+    "@builder.io/qwik": "^1.3.1",
+    "@builder.io/qwik-city": "^1.3.1",
+    "@types/eslint": "^8.44.8",
+    "@types/node": "^20.10.3",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-plugin-qwik": "^1.3.1",
+    "prettier": "^3.1.0",
+    "sass": "^1.69.5",
+    "typescript": "^5.3.2",
+    "undici": "^5.26.0",
+    "vite": "^5.0.6",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "supportedArchitectures": {
+    "os": [
+      "darwin",
+      "current"
+    ],
+    "cpu": [
+      "x64",
+      "arm64"
+    ]
+  },
+  "dependencies": {
+    "rehype-pretty-code": "^0.12.2",
+    "sharp": "^0.33.1",
+    "shikiji": "^0.9.0"
   }
 }

@@ -6,20 +6,22 @@
   --user-font-scale: 1rem - 16px;
   --max-width: calc(100% - 1rem);
 
-  --font-body: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   --font-mono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
     "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
     "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco,
     "Courier New", Courier, monospace;
+  --fonts-heading: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
   color-scheme: light;
 
-  --theme-bg: #f5f5f5;
-  --theme-bg-alt: #e5e5e5;
-  --theme-border: #bfbfbf;
-  --theme-text: #181818;
-  --theme-accent: #006ce9;
+  --theme-bg: #FEF3C7;
+  --theme-bg-alt: #f9eab3;
+  --theme-border: #eaddae;
+  --theme-text: #451A03;
+  --theme-accent: #ec7f26;
 }
 
 body {
@@ -29,12 +31,13 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   font-size: clamp(0.9rem, 0.75rem + 0.375vw + var(--user-font-scale), 1rem);
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 2;
 
   background: var(--theme-bg);
   color: var(--theme-text);
 
-  max-width: 80ch;
+  max-width: 40ch;
   width: 95%;
 
   margin: 0 auto;
@@ -42,11 +45,28 @@ body {
 }
 
 main {
-  padding: 10px 0;
+  padding: 0;
+}
+
+footer {
+  margin-bottom: 2em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--theme-border);
+  margin: 2em 0 .5em;
 }
 
 a {
   color: var(--theme-accent);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--fonts-heading);
+  font-weight: 800;
+  line-height: 1.125em;
+  margin: 1.5em 0 0.5em;
 }
 
 code,
@@ -56,10 +76,107 @@ pre {
   font-family: var(--font-mono);
 }
 
-code {
+:not(pre) > code {
   background-color: var(--theme-bg-alt);
   padding: 2px 4px;
+  margin: 0 2px;
   border-radius: 3px;
   font-size: 0.9em;
-  border-bottom: 2px solid var(--theme-border);
+}
+
+[data-rehype-pretty-code-figure] {
+  padding: .75rem 0;
+  font-size: .9125rem;
+
+  margin: 0;
+  border-radius: .5rem;
+  overflow: hidden;
+  background: var(--theme-bg-alt);
+  border: 1px solid var(--theme-border);
+
+  line-height: 1.375;
+
+  pre {
+    margin: 0;
+    padding: 0 0.75rem;
+    overflow-x: auto;
+  }
+}
+
+table {
+  border-spacing: 0;
+  overflow-x: auto;
+  display: block;
+  margin: 1em 0;
+
+  font-size: .875rem;
+
+  th {
+    font-family: var(--fonts-heading);
+    font-weight: 700;
+    line-height: 1.125em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  th,
+  td {
+    padding: 0.5em 1em;
+    border-left: 1px solid var(--theme-border);
+    border-bottom: 1px solid var(--theme-border);
+
+    &:last-child {
+      border-right: 1px solid var(--theme-border);
+    }
+  }
+
+  th {
+    padding: 1em 1em .75em;
+  }
+
+  tr:first-child th {
+    border-top: 1px solid var(--theme-border);
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--theme-bg-alt);
+
+    :not(pre) > code {
+      background-color: var(--theme-bg);
+    }
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--theme-bg);
+  }
+
+  // radius:
+
+  tr:first-child th:first-child {
+    border-top-left-radius: 0.5rem;
+  }
+
+  tr:first-child th:last-child {
+    border-top-right-radius: 0.5rem;
+  }
+
+  tr:last-child td:first-child {
+    border-bottom-left-radius: .5rem;
+  }
+
+  tr:last-child td:last-child {
+    border-bottom-right-radius: .5rem;
+  }
+}
+
+table, [data-rehype-pretty-code-figure][data-wide] {
+  --width: 175%;
+
+  width: var(--width);
+  margin-left: calc((100% - var(--width)) / 2);
+
+  @media (max-width: 768px) {
+    --width: 100%;
+    margin-left: 0;
+  }
 }
